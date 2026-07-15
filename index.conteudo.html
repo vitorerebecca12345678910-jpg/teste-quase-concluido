@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espaço de Casamento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #000000, #000000);
+      color: #fdfdfd;
+    }
+    header {
+      background: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    header img {
+      height: 60px;
+      margin-right: 15px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #ff4e50;
+    }
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .hero h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: auto;
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+    .galeria img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+    .video {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .video iframe {
+      width: 80%;
+      height: 400px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    .orcamento {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      background: #25D366;
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.5em;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .orcamento a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .orcamento img {
+      width: 40px;
+      margin-right: 10px;
+    }
+    footer {
+      background: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    }
+
+    .apresentacao-imagens {
+  display: flex;
+  flex-wrap: wrap; /* permite que as imagens quebrem para baixo */
+  gap: 15px;       /* espaço entre elas */
+  justify-content: center;
+}
+
+.apresentacao-imagens img {
+  width: 400px;    /* tamanho fixo (pode ajustar) */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+.apresentacao-imagens {
+  display: flex;
+  flex-wrap: wrap;   /* permite quebrar para baixo */
+  gap: 15px;         /* espaçamento entre imagens */
+  justify-content: center;
+}
+
+.apresentacao-imagens img {
+  width: 300px;      /* largura fixa */
+  height: 200px;     /* altura fixa */
+  object-fit: cover; /* corta proporcionalmente sem distorcer */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.orcamento {
+  position: fixed;
+  top: 70%;          /* move mais para baixo */
+  right: 20px;
+  transform: translateY(-50%);
+  background: #25D366;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.5em;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+.apresentacao-imagens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.apresentacao-imagens img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.apresentacao-imagens img:hover {
+  transform: scale(1.05);
+}
+header {
+  display: flex;
+  justify-content: center;
+}
+header {
+  display: flex;
+  flex-direction: column; /* coloca logo em cima e título embaixo */
+  align-items: center;
+}
+
+header img {
+  width: 250px;   /* tamanho maior */
+  height: auto;
+  margin-bottom: 15px;
+}
+
+header img {
+  width: 100%;      /* ocupa toda a largura da tela */
+  height: 200px;    /* altura fixa para parecer banner */
+  object-fit: cover;/* corta proporcionalmente sem distorcer */
+  display: block;
+}
+
+header img {
+  width: 100%;       /* ocupa toda a largura */
+  height: 200px;     /* altura fixa estilo banner */
+  object-fit: cover; /* corta proporcionalmente sem distorcer */
+  display: block;
+}
+
+header {
+  background: url('./logo.jpg') no-repeat center center;
+  background-size: cover;   /* estica a logo para cobrir toda a largura */
+  height: 250px;            /* altura do banner */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  color: #fff;              /* texto branco para contraste */
+  font-size: 3em;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* sombra para destacar */
+}
+
+footer {
+  background: url('./banner-footer.jpg') no-repeat center center;
+  background-size: cover;   /* cobre toda a largura */
+  color: #fff;
+  text-align: center;
+  padding: 400px;            /* aumenta altura do rodapé */
+}
+
+
+  </style>
+</head>
+<body>
+ 
+    <header>
+  <h1>Espaço dos Sonhos 💍</h1>
+</header>
+
+
+
+  <!-- Apresentação -->
+  <section class="hero">
+    <h2>O lugar perfeito para o seu casamento</h2>
+    <p>Oferecemos um espaço exclusivo, elegante e acolhedor para tornar o seu grande dia inesquecível. Reserve já e viva momentos mágicos!</p>
+  </section>
+
+  <!-- Galeria de imagens -->
+  <section class="apresentacao-imagens">
+  <a href="https://home.lejour.com.br/wp-content/uploads/2021/09/chacara-viva-casamento-ao-ar-livre.jpg" target="_blank">
+    <img src="https://home.lejour.com.br/wp-content/uploads/2021/09/chacara-viva-casamento-ao-ar-livre.jpg" alt="Espaço de casamento">
+  </a>
+  
+  <a href="https://i.pinimg.com/originals/93/85/61/9385611e1b2df3f41af5c0f5be9458c6.jpg" target="_blank">
+    <img src="https://i.pinimg.com/originals/93/85/61/9385611e1b2df3f41af5c0f5be9458c6.jpg" alt="Salão decorado">
+  </a>
+  
+  <a href="https://aceitosim.com.br/wp-content/uploads/2016/11/fotos-de-casamento-768x512.jpg" target="_blank">
+    <img src="https://aceitosim.com.br/wp-content/uploads/2016/11/fotos-de-casamento-768x512.jpg" alt="Festa de casamento">
+  </a>
+
+  <a href="https://ts3.mm.bing.net/th?id=OIP.QT_mYv1sa_ac0g_vGrYHzAHaE7&pid=15.1&w=518&h=345&c=7&rs=1"  target="_blank">
+<img src="https://ts3.mm.bing.net/th?id=OIP.QT_mYv1sa_ac0g_vGrYHzAHaE7&pid=15.1&w=518&h=345&c=7&rs=1" alt="buffet">
+  </a>
+
+  <a href="https://topdancefloor.com/wp-content/uploads/2023/03/Mix-RGB-effect-of-3D-LED-dance-floor-on-dj-event-1280x960.jpg" target="_blank">
+<img src="https://topdancefloor.com/wp-content/uploads/2023/03/Mix-RGB-effect-of-3D-LED-dance-floor-on-dj-event-1280x960.jpg" alt="pista de dança">
+  </a>
+
+  <a href="https://tuacasa.uol.com.br/wp-content/uploads/2019/04/mesa-de-frios-08-1300x1536.jpg" target="_blank">
+<img src="https://tuacasa.uol.com.br/wp-content/uploads/2019/04/mesa-de-frios-08-1300x1536.jpg" alt="mesa de frios">
+  </a>
+
+  <a href="https://barschool.net/wp-content/uploads/2018/11/111-bartender-preparing-cocktail.jpg" target="_blank"> 
+<img src="https://barschool.net/wp-content/uploads/2018/11/111-bartender-preparing-cocktail.jpg" alt="bar man">
+  </a>
+
+  <a href="https://www.aceitosim.com.br/wp-content/uploads/2017/04/entrada-da-noiva22.jpg" target="_blank">
+<img src="https://www.aceitosim.com.br/wp-content/uploads/2017/04/entrada-da-noiva22.jpg" alt="entarda da noiva">
+  </a>
+
+  <a href="https://th.bing.com/th/id/OIP.GJ5AoN_-uChX0SIxQF_8rAHaEj?w=318&h=196&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+<img src="https://th.bing.com/th/id/OIP.GJ5AoN_-uChX0SIxQF_8rAHaEj?w=318&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="mesa de doces">
+  </a>
+
+  <a href="https://2.bp.blogspot.com/-GWcpRcQUNAw/UTtdcueSaEI/AAAAAAAACTY/PcGDrAy5jR4/s1600/banheiro.jpeg" target="_blank">
+<img src="https://2.bp.blogspot.com/-GWcpRcQUNAw/UTtdcueSaEI/AAAAAAAACTY/PcGDrAy5jR4/s1600/banheiro.jpeg" alt="banheiro">
+  </a>
+</section>
+
+ 
+</section>
+
+
+  <!-- Botão de orçamento via WhatsApp -->
+  <div class="orcamento">
+    <a href="https://wa.me/17997746829?text=Olá%20gostaria%20de%20fazer%20um%20orçamento%20para%20o%20espaço%20de%20casamento" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      Faça seu orçamento
+    </a>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2026  espaço para casamento</p>
+  </footer>
+</body>
+</html>
