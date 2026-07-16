@@ -60,6 +60,18 @@
     button:hover {
       background: #030303;
     }
+    .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #4facfe;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -78,25 +90,48 @@
         <label for="senha">Senha</label>
         <input type="password" id="senha" required>
       </div>
-
-      
       <button type="submit">Cadastrar</button>
+      <div class="error" id="erroMsg"></div>
     </form>
+    <span class="link" id="esqueciSenha">Esqueci minha senha</span>
   </div>
 
   <script>
+    // Carrega credenciais padrão do localStorage ou usa valores iniciais
+    let emailPadrao = localStorage.getItem("emailPadrao") || "teste@exemplo.com";
+    let senhaPadrao = localStorage.getItem("senhaPadrao") || "123456";
+
     const form = document.getElementById('cadastroForm');
+    const erroMsg = document.getElementById('erroMsg');
+    const esqueciSenha = document.getElementById('esqueciSenha');
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       const nome = document.getElementById('nome').value;
       const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
 
-      // Salva temporariamente no localStorage
-      localStorage.setItem("nomeUsuario", nome);
-      localStorage.setItem("emailUsuario", email);
+      if (email === emailPadrao && senha === senhaPadrao) {
+        localStorage.setItem("nomeUsuario", nome);
+        localStorage.setItem("emailUsuario", email);
+        window.location.href = "./menu.html"; // Redireciona para conteúdo
+      } else {
+        erroMsg.textContent = "E-mail ou senha inválidos. Use as credenciais corretas.";
+      }
+    });
 
-      // Redireciona para página de sucesso
-      window.location.href = "./index.conteudo.html";
+    // Redefinir credenciais
+    esqueciSenha.addEventListener('click', function() {
+      const novoEmail = prompt("Digite o novo e-mail:");
+      const novaSenha = prompt("Digite a nova senha:");
+
+      if (novoEmail && novaSenha) {
+        localStorage.setItem("emailPadrao", novoEmail);
+        localStorage.setItem("senhaPadrao", novaSenha);
+        emailPadrao = novoEmail;
+        senhaPadrao = novaSenha;
+        alert("Credenciais redefinidas com sucesso!");
+      }
     });
   </script>
 

@@ -1,0 +1,124 @@
+<!-- ==================== CAPA INICIAL ==================== -->
+<section class="capa-inicial">
+
+    <!-- Mensagem de boas-vindas -->
+    <h1>Bem-vindo ao Buffet & Eventos!</h1>
+  </div>
+
+  <!-- Sequência da mensagem -->
+  <div class="capa-mensagem">
+    <p>
+      É uma alegria receber você em nosso espaço. Cada detalhe foi pensado para transformar momentos especiais em experiências inesquecíveis.
+    </p>
+    <p>
+      Nosso salão de festas proporciona conforto e sofisticação, a pista de dança garante diversão e energia, o bar oferece praticidade e charme, e nosso buffet é cuidadosamente elaborado para encantar todos os paladares.
+    </p>
+    <p>
+      Mais do que um espaço, somos apaixonados por criar memórias. Nossa equipe está sempre pronta para cuidar de cada detalhe e garantir que você e seus convidados vivam momentos únicos.
+    </p>
+  </div>
+</section>
+
+<style>
+  .capa-inicial {
+    width: 100%;
+    min-height: 100vh;
+    background: url('./logo.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 40px 20px;
+  }
+
+  .capa-topo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .logo-capa {
+    max-width: 180px; /* tamanho da logo */
+    height: auto;
+  }
+
+  /* Texto principal maior */
+  .capa-topo h1 {
+    font-size: 3.5em; /* aumentei o tamanho do título */
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  }
+
+  /* Mensagem abaixo maior */
+  .capa-mensagem {
+    max-width: 900px;
+    font-size: 1.6em; /* aumentei o tamanho do texto */
+    line-height: 1.8;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  }
+
+  .capa-mensagem p {
+    margin-bottom: 25px;
+  }
+  p{
+    font-size: 30px;
+    background-color: rgb(208, 255, 0);
+    color: #000000;
+  }
+
+  /* Garante que o body não fique branco */
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('./logo.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+  }
+
+  .capa-inicial {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 40px 20px;
+  }
+</style>
+
+
+<button id="btnEntrar">Entrar</button>
+
+<script>
+  // Redireciona ao clicar
+  document.getElementById("btnEntrar").addEventListener("click", function() {
+    window.location.href = "./index.conteudo.html";
+  });
+</script>
+
+<style>
+  #btnEntrar {
+    font-size: 2em;              /* texto grande */
+    padding: 20px 40px;          /* aumenta o tamanho do botão */
+    border-top: 6px solid #000000;  /* borda no topo */
+    background-color: #ffcc00;   /* cor de fundo */
+    color: #000;                 /* cor do texto */
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    transition: background-color 0.3s ease;
+    float: right;                /* posiciona à direita */
+    margin: 20px;                /* espaço da borda */
+  }
+
+  #btnEntrar:hover {
+    background-color: #ffaa00;   /* muda cor ao passar o mouse */
+  }
+</style>

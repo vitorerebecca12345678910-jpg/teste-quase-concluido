@@ -1,349 +1,288 @@
+<!-- ==================== ESTILOS ==================== -->
 <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #000000, #fffef9);
+    color: #fff;
+  }
+
+  header {
+    background: linear-gradient(135deg, #111111, #fffdfb);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header h1 {
+    color: #fff;
+    font-size: 3em;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  }
+
+  section h2 {
+    color: #ffe066;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+  }
+
+  /* Galeria original */
   .apresentacao-imagens {
-  display: flex;          /* coloca lado a lado */
-  flex-wrap: wrap;        /* permite quebrar para baixo */
-  gap: 20px;              /* espaço entre imagens */
-  justify-content: center;/* centraliza na tela */
-}
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .apresentacao-imagens img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .apresentacao-imagens img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  }
 
-.apresentacao-imagens img {
-  width: 300px;           /* largura fixa */
-  height: 200px;          /* altura fixa */
-  object-fit: cover;      /* corta proporcionalmente sem distorcer */
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-}
+  /* Carrossel */
+  .carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  }
+  .carousel img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: none;
+  }
+  .carousel img.active {
+    display: block;
+  }
 
-.apresentacao-imagens img:hover {
-  transform: scale(1.05);
-}
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: linear-gradient(135deg, #000000, #fffef9); /* degradê vibrante */
-  color: #fff;
-}
+  .carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .carousel button:hover {
+    background: rgba(0,0,0,0.8);
+  }
+  .prev { left: 15px; }
+  .next { right: 15px; }
 
-/* Header estilo banner */
-header {
-  background: linear-gradient(135deg, #111111, #fffdfb);
-  height: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-header h1 {
-  color: #fff;
-  font-size: 3em;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-}
+  /* Botão de orçamento bem grande */
+  .orcamento-grande {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: #000;
+    padding: 30px 50px;
+    border-radius: 60px;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    z-index: 1000;
+  }
+  .orcamento-grande img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+  
+   /* Banner ocupando toda a largura */
+  .banner-logo {
+    position: relative;
+    width: 100%;
+    height: 250px;              /* altura do banner */
+    overflow: hidden;
+  }
 
-/* Seções */
-section h2 {
-  color: #ffe066; /* dourado suave */
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2em;
-}
+  .banner-logo img {
+    width: 100%;                /* estica a imagem para ocupar toda a largura */
+    height: 100%;               /* estica a imagem para ocupar toda a altura */
+    object-fit: cover;          /* mantém proporção sem distorcer */
+    filter: brightness(70%);    /* escurece um pouco para destacar o texto */
+  }
 
-/* Galeria de imagens */
-.apresentacao-imagens {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-.apresentacao-imagens img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.apresentacao-imagens img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-/* Botão de orçamento */
-.orcamento {
-  position: fixed;
-  top: 70%;
-  right: 20px;
-  transform: translateY(-50%);
-  background: #25D366;
-  color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 1.5em;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-.orcamento a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.orcamento img {
-  width: 40px;
-  margin-right: 10px;
-}
-
-/* Footer */
-footer {
-  background: linear-gradient(135deg, #000000, #ffffff);
-  color: #fff;
-  text-align: center;
-  padding: 40px;
-  font-size: 1.2em;
-}
-
+  /* Texto sobre o banner */
+  .banner-text {
+    position: absolute;
+    top: 50%;                   /* centraliza verticalmente */
+    left: 50%;                  /* centraliza horizontalmente */
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  }
+  
 </style>
 
 
-<!-- Buffet -->
+
+<!-- ==================== BANNER COM LOGO E TEXTO ==================== -->
+<header class="banner-logo">
+  <img src="./logo.jpg" alt="Logo da Empresa">
+  <h1 class="banner-text">Buffet & Eventos</h1>
+</header>
+
+
+
+
+
+
+
+
+
+
+<!-- ==================== SEÇÃO BUFFET ==================== -->
 <section class="buffet">
   <h2>Buffet</h2>
+
+  <!-- Carrossel Buffet -->
+  <div class="carousel">
+    <!-- coloque aqui as imagens principais do Buffet -->
+   <img src="https://copilot.microsoft.com/th/id/BCO.c183a0f0-9968-4720-85dc-324bc8b6c2b2.png" alt="buffet 1">
+   <img src="https://copilot.microsoft.com/th/id/BCO.0ad7c495-ce94-4240-a0b2-c1c18a25a874.png" alt="buffet 2">
+   <img src="https://copilot.microsoft.com/th/id/BCO.7a5f94d8-6ae6-4b02-9ece-7ceeb23d3add.png" alt=" buffet 3">
+   <img src="https://copilot.microsoft.com/th/id/BCO.3acd4310-5319-4c64-94aa-bf0a778bc40b.png" alt="bufet 4">
+   <img src="https://copilot.microsoft.com/th/id/BCO.b07686ae-f5ab-4528-b64b-8b9f0d9cfa85.png" alt="buffet 5">
+   <img src="https://copilot.microsoft.com/th/id/BCO.ec53db04-6429-4c98-b722-de2c8d8d363a.png" alt="buffet 6">
+   <img src="https://th.bing.com/th/id/OIP.xGHfGTHW2DJKHJ6gNFAP3gHaE7?w=281&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 7">
+   <img src="https://th.bing.com/th/id/OIP.0j1k0SNIs9VgxGemn45qRgHaE7?w=283&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 8">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <!-- Galeria original Buffet -->
   <div class="apresentacao-imagens">
-    <a href="https://copilot.microsoft.com/th/id/BCO.c183a0f0-9968-4720-85dc-324bc8b6c2b2.png" target="_blank">
-<img src="https://copilot.microsoft.com/th/id/BCO.c183a0f0-9968-4720-85dc-324bc8b6c2b2.png" alt="buffet 1">
-    </a>
-
-    <a href="https://copilot.microsoft.com/th/id/BCO.0ad7c495-ce94-4240-a0b2-c1c18a25a874.png" target="_blank">
-<img src="https://copilot.microsoft.com/th/id/BCO.0ad7c495-ce94-4240-a0b2-c1c18a25a874.png" alt="buffet 2">
-    </a>
-
-    <a href="https://copilot.microsoft.com/th/id/BCO.7a5f94d8-6ae6-4b02-9ece-7ceeb23d3add.png" target="_blank">
-<img src="https://copilot.microsoft.com/th/id/BCO.7a5f94d8-6ae6-4b02-9ece-7ceeb23d3add.png" alt=" buffet 3">
-    </a>
-
-    <a href="https://copilot.microsoft.com/th/id/BCO.3acd4310-5319-4c64-94aa-bf0a778bc40b.png" target="_blank">
-<img src="https://copilot.microsoft.com/th/id/BCO.3acd4310-5319-4c64-94aa-bf0a778bc40b.png" alt="bufet 4">
-    </a>
-
-    <a href="https://copilot.microsoft.com/th/id/BCO.b07686ae-f5ab-4528-b64b-8b9f0d9cfa85.png" target="_blank">
-<img src="https://copilot.microsoft.com/th/id/BCO.b07686ae-f5ab-4528-b64b-8b9f0d9cfa85.png" alt="buffet 5">
-    </a>
-
-
-    <a href="https://copilot.microsoft.com/th/id/BCO.ec53db04-6429-4c98-b722-de2c8d8d363a.png" target="_blank">
-<img src="https://copilot.microsoft.com/th/id/BCO.ec53db04-6429-4c98-b722-de2c8d8d363a.png" alt="buffet 6">
-    </a>
-
-
-    <a href="https://th.bing.com/th/id/OIP.xGHfGTHW2DJKHJ6gNFAP3gHaE7?w=281&h=187&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-<img src="https://th.bing.com/th/id/OIP.xGHfGTHW2DJKHJ6gNFAP3gHaE7?w=281&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 7">
-    </a>
-
-    <a href="https://th.bing.com/th/id/OIP.0j1k0SNIs9VgxGemn45qRgHaE7?w=283&h=187&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.0j1k0SNIs9VgxGemn45qRgHaE7?w=283&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 8">
-    </a>
-
-
-    <a href="https://copilot.microsoft.com/th/id/BCO.cf6dc28c-1f5f-424f-9100-22a924f43f27.png" target="_blank">
-      <img src="https://copilot.microsoft.com/th/id/BCO.cf6dc28c-1f5f-424f-9100-22a924f43f27.png" alt="buffet 9">
-    </a>
-
-    <a href="https://th.bing.com/th/id/OIP.0j1k0SNIs9VgxGemn45qRgHaE7?w=283&h=187&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.0j1k0SNIs9VgxGemn45qRgHaE7?w=283&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 10">
-    </a>
-
-
-    <a href="https://th.bing.com/th/id/OIP.7dz26LBO07p7rodP2pGfUQHaFX?w=246&h=180&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.7dz26LBO07p7rodP2pGfUQHaFX?w=246&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 11">
-    </a>
-
-    <a href="https://th.bing.com/th/id/OIP.-It4R7Z1N9zR6ucnv3wd1gHaEg?w=305&h=185&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.-It4R7Z1N9zR6ucnv3wd1gHaEg?w=305&h=185&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 12">
-    </a>
+    <!-- todas as imagens originais do Buffet -->
   </div>
 </section>
 
-<!-- Salão de Festa -->
+<!-- ==================== SEÇÃO SALÃO DECORADO ==================== -->
 <section class="salao">
-  <h2>Salão de Festa</h2>
+  <h2>SALÃO DECORADO</h2>
+
+  <!-- Carrossel Salão -->
+  <div class="carousel">
+    <img src="https://ts2.mm.bing.net/th?id=OIP._JE4O9bDHrl6H4VFTub_NgHaE8&pid=15.1&o=7&rm=3" alt="Salão decorado">
+     <img src="https://ts4.mm.bing.net/th?id=OIP.U1NafKK_lXomFwyY-DYwSQHaE8&pid=15.1&o=7&rm=3" alt="salão decorado">
+     <img src="https://ts2.mm.bing.net/th?id=OIP.lOvmJimw49JEXh6OkeJqEgHaFj&pid=15.1&o=7&rm=3" alt="salão decorado">
+     <img src="https://ts2.mm.bing.net/th?id=OIP.F2kNWw5SILI4YrHsDNMXiwHaE8&pid=15.1&o=7&rm=3" alt="salão decorado">
+     <img src="https://ts3.mm.bing.net/th?id=OIP.Viw-Pe5Ajq4nsnVlhKIvtwHaHa&pid=15.1&o=7&rm=3" alt="salão decorado">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <!-- Galeria original Salão -->
   <div class="apresentacao-imagens">
-    <a href="https://ts2.mm.bing.net/th?id=OIP._JE4O9bDHrl6H4VFTub_NgHaE8&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts2.mm.bing.net/th?id=OIP._JE4O9bDHrl6H4VFTub_NgHaE8&pid=15.1&o=7&rm=3" alt="Salão decorado">
-    </a>
-    <a href="https://ts4.mm.bing.net/th?id=OIP.U1NafKK_lXomFwyY-DYwSQHaE8&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts4.mm.bing.net/th?id=OIP.U1NafKK_lXomFwyY-DYwSQHaE8&pid=15.1&o=7&rm=3" alt="salão decorado">
-    </a>
-
-    <a href="https://ts2.mm.bing.net/th?id=OIP.lOvmJimw49JEXh6OkeJqEgHaFj&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts2.mm.bing.net/th?id=OIP.lOvmJimw49JEXh6OkeJqEgHaFj&pid=15.1&o=7&rm=3" alt="salão decorado">
-    </a>
-
-    <a href="https://ts2.mm.bing.net/th?id=OIP.F2kNWw5SILI4YrHsDNMXiwHaE8&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts2.mm.bing.net/th?id=OIP.F2kNWw5SILI4YrHsDNMXiwHaE8&pid=15.1&o=7&rm=3" alt="salão decorado">
-    </a>
-
-    <a href="https://ts3.mm.bing.net/th?id=OIP.Viw-Pe5Ajq4nsnVlhKIvtwHaHa&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts3.mm.bing.net/th?id=OIP.Viw-Pe5Ajq4nsnVlhKIvtwHaHa&pid=15.1&o=7&rm=3" alt="salão decorado">
-    </a>
-
-    <a href="https://ts3.mm.bing.net/th?id=OIP.Jwckrm0uBxxM8VV4ET0O3wHaE7&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts3.mm.bing.net/th?id=OIP.Jwckrm0uBxxM8VV4ET0O3wHaE7&pid=15.1&o=7&rm=3" alt="slão decorado">
-    </a>
-
-    <a href="https://ts4.mm.bing.net/th?id=OIP.HCuk4_C9DJcXK58_ttTf3QHaEK&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts4.mm.bing.net/th?id=OIP.HCuk4_C9DJcXK58_ttTf3QHaEK&pid=15.1&o=7&rm=3" alt="slão decorado">
-    </a>
-
-    <a href="https://ts3.mm.bing.net/th?id=OIP.Nsa-5oox1D6r4z9mU52Q6gHaF7&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts3.mm.bing.net/th?id=OIP.Nsa-5oox1D6r4z9mU52Q6gHaF7&pid=15.1&o=7&rm=3" alt="slão decorado">
-    </a>
-
-    <a href="https://ts2.mm.bing.net/th?id=OIP._f8fl-wTrUcuztegRsGelAHaE7&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts2.mm.bing.net/th?id=OIP._f8fl-wTrUcuztegRsGelAHaE7&pid=15.1&o=7&rm=3" alt="slão decorado">
-    </a>
-
-    <a href="https://cdn0.casamentos.com.br/emp/fotos/2/1/3/0/formaturaricardo-25_13_112130-157852558227020.jpg" target="_blank">
-      <img src="https://cdn0.casamentos.com.br/emp/fotos/2/1/3/0/formaturaricardo-25_13_112130-157852558227020.jpg" alt="slão decorado">
-    </a>
-
-    <a href="https://cdn0.casamentos.com.br/vendor/6842/3_2/960/jpg/img-5331_13_106842-166964774173918.jpeg" target="_blank">
-      <img src="https://cdn0.casamentos.com.br/vendor/6842/3_2/960/jpg/img-5331_13_106842-166964774173918.jpeg" alt="salão decorado">
-    </a>
-
-    <a href="https://ts4.mm.bing.net/th?id=OIP.c54nxV6xiNZBfWgeu-0zRQHaEa&pid=15.1&o=7&rm=3" target="_blank">
-      <img src="https://ts4.mm.bing.net/th?id=OIP.c54nxV6xiNZBfWgeu-0zRQHaEa&pid=15.1&o=7&rm=3" alt="salão decorado">
-    </a>
+    <!-- todas as imagens originais do Salão -->
   </div>
 </section>
 
-<!-- Pista de Dança -->
+<!-- ==================== SEÇÃO PISTA DE DANÇA ==================== -->
 <section class="pista">
   <h2>Pista de Dança</h2>
-  <div class="apresentacao-imagens">
-    <a href="https://copilot.microsoft.com/th/id/BCO.a1926798-6688-4539-856e-7804aa5ca5ce.png" target="_blank">
-      <img src="https://copilot.microsoft.com/th/id/BCO.a1926798-6688-4539-856e-7804aa5ca5ce.png" alt="Pista de dança">
-    </a>
 
-    <a href="https://copilot.microsoft.com/th/id/BCO.eadf5dc2-72c9-40c0-ac4f-5cf75270e86c.png" target="_blank">
-      <img src="https://copilot.microsoft.com/th/id/BCO.eadf5dc2-72c9-40c0-ac4f-5cf75270e86c.png" alt="pista de dança">
-    </a>
-
-    <a href="https://i.pinimg.com/originals/7a/bc/0d/7abc0dd265fe76b9b76e217d3642235e.jpg" target="_blank">
-      <img src="https://i.pinimg.com/originals/7a/bc/0d/7abc0dd265fe76b9b76e217d3642235e.jpg" alt="pista de dança">
-    </a>
-
-    <a href="https://elo5eventos.com.br/wp-content/uploads/2021/07/pista-de-led-paris.jpg" target="_blank">
-      <img src="https://elo5eventos.com.br/wp-content/uploads/2021/07/pista-de-led-paris.jpg" alt="pista de dança">
-    </a>
-
-    <a href="https://cdn0.casamentos.com.br/vendor/0456/3_2/1280/jpg/img-4443_13_130456.jpeg" target="_blank">
+  <!-- Carrossel Pista -->
+  <div class="carousel">
+    <img src="https://copilot.microsoft.com/th/id/BCO.a1926798-6688-4539-856e-7804aa5ca5ce.png" alt="Pista de dança">
+     <img src="https://i.pinimg.com/originals/7a/bc/0d/7abc0dd265fe76b9b76e217d3642235e.jpg" alt="pista de dança">
+     <img src="https://elo5eventos.com.br/wp-content/uploads/2021/07/pista-de-led-paris.jpg" alt="pista de dança">
       <img src="https://cdn0.casamentos.com.br/vendor/0456/3_2/1280/jpg/img-4443_13_130456.jpeg" alt="pista de dança">
-    </a>
+        <img src="https://i.pinimg.com/736x/b8/7a/45/b87a4548c0e8f7608af76e0c54c9d02d.jpg" alt="pista de dança">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.5tqEQHBInKIJ2JHovEdkbgHaHa?r=0&w=1000&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3" alt="pista de dança">
+          <img src="https://tse2.mm.bing.net/th/id/OIP.NG6HqwX11k9SnWDqNZMncwHaGf?r=0&w=570&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" alt="pista de dança">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
 
-
-    <a href="https://i.pinimg.com/736x/b8/7a/45/b87a4548c0e8f7608af76e0c54c9d02d.jpg" target="_blank">
-      <img src="https://i.pinimg.com/736x/b8/7a/45/b87a4548c0e8f7608af76e0c54c9d02d.jpg" alt="pista de dança">
-    </a>
-
-     <a href="https://tse2.mm.bing.net/th/id/OIP.5tqEQHBInKIJ2JHovEdkbgHaHa?r=0&w=1000&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3" target="_blank">
-      <img src="https://tse2.mm.bing.net/th/id/OIP.5tqEQHBInKIJ2JHovEdkbgHaHa?r=0&w=1000&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3" alt="pista de dança">
-    </a>
-
-     <a href="https://tse2.mm.bing.net/th/id/OIP.NG6HqwX11k9SnWDqNZMncwHaGf?r=0&w=570&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" target="_blank">
-      <img src="https://tse2.mm.bing.net/th/id/OIP.NG6HqwX11k9SnWDqNZMncwHaGf?r=0&w=570&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" alt="pista de dança">
-    </a>
-
-     <a href="https://roslynevents.co.uk/wp-content/uploads/2022/01/led-dance-floor-white.jpg" target="_blank">
-      <img src="https://roslynevents.co.uk/wp-content/uploads/2022/01/led-dance-floor-white.jpg" alt="pista de dança">
-    </a>
-
-     <a href="https://i.pinimg.com/originals/7c/b8/8b/7cb88bb3edfb9e42963b5ac0ef9eb2d2.jpg" target="_blank">
-      <img src="https://i.pinimg.com/originals/7c/b8/8b/7cb88bb3edfb9e42963b5ac0ef9eb2d2.jpg" alt="pista de dança">
-    </a>
-
-     <a href="https://i.etsystatic.com/19972274/r/il/60dbaf/4938982965/il_300x300.4938982965_f7s9.jpg" target="_blank">
-      <img src="https://i.etsystatic.com/19972274/r/il/60dbaf/4938982965/il_300x300.4938982965_f7s9.jpg" alt="pista de dança">
-    </a>
-
-     <a href="https://i.etsystatic.com/19972274/r/il/471796/5170449201/il_300x300.5170449201_ho3j.jpg" target="_blank">
-      <img src="https://i.etsystatic.com/19972274/r/il/471796/5170449201/il_300x300.5170449201_ho3j.jpg" alt="pista de dança">
-    </a>
+  <!-- Galeria original Pista -->
+  <div class="apresentacao-imagens">
+    <!-- todas as imagens originais da Pista -->
   </div>
 </section>
 
-<!-- Bar -->
+<!-- ==================== SEÇÃO BAR ==================== -->
 <section class="bar">
   <h2>Bar</h2>
-  <div class="apresentacao-imagens">
-    <a href="https://copilot.microsoft.com/th/id/BCO.d481f042-4eba-495b-978e-ef88406778e2.png" target="_blank">
-      <img src="https://copilot.microsoft.com/th/id/BCO.d481f042-4eba-495b-978e-ef88406778e2.png" alt="bar">
-    </a>
 
-     <a href="https://copilot.microsoft.com/th/id/BCO.67e3a48f-4bf1-499f-bb64-9a1803cbd889.png" target="_blank">
-      <img src="https://copilot.microsoft.com/th/id/BCO.67e3a48f-4bf1-499f-bb64-9a1803cbd889.png" alt="bar">
-    </a>
-
-     <a href="https://th.bing.com/th/id/OIP.4wipiC0F8Nm8fQlQAUlUOgHaFj?w=262&h=196&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.4wipiC0F8Nm8fQlQAUlUOgHaFj?w=262&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
-
-
-    <a href="https://th.bing.com/th/id/OIP.QpEh4syTbv6qQBAjxY1MpwHaEs?w=308&h=196&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+  <!-- Carrossel Bar -->
+  <div class="carousel">
+     <img src="https://copilot.microsoft.com/th/id/BCO.67e3a48f-4bf1-499f-bb64-9a1803cbd889.png" alt="bar">
+     <img src="https://copilot.microsoft.com/th/id/BCO.d481f042-4eba-495b-978e-ef88406778e2.png" alt="bar">
       <img src="https://th.bing.com/th/id/OIP.QpEh4syTbv6qQBAjxY1MpwHaEs?w=308&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
+       <img src="https://th.bing.com/th/id/OIP.aimbsasT67PSJnL1rHmDEAHaHa?w=261&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+        <img src="https://th.bing.com/th/id/OIP.ZCXJ0BJEYrM5YN7NotnhRAHaGY?w=237&h=204&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+        <img src="https://th.bing.com/th/id/OIP.Qo9f77H25YwXXasNmniFhwHaHa?w=187&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+         <img src="https://th.bing.com/th/id/OIP.TQCsMeZLb93aSps1w5nevAHaHa?w=192&h=192&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
 
-
-    <a href="https://th.bing.com/th/id/OIP.aimbsasT67PSJnL1rHmDEAHaHa?w=261&h=196&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.aimbsasT67PSJnL1rHmDEAHaHa?w=261&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
-
-
-    <a href="https://th.bing.com/th/id/OIP.ZCXJ0BJEYrM5YN7NotnhRAHaGY?w=237&h=204&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.ZCXJ0BJEYrM5YN7NotnhRAHaGY?w=237&h=204&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
-
-
-    <a href="https://th.bing.com/th/id/OIP.Qo9f77H25YwXXasNmniFhwHaHa?w=187&h=187&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.Qo9f77H25YwXXasNmniFhwHaHa?w=187&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
-
-
-    <a href="https://th.bing.com/th/id/OIP.l0qwqtZpMX9oTUfr-1WncgHaFj?w=256&h=192&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.l0qwqtZpMX9oTUfr-1WncgHaFj?w=256&h=192&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
-
-    <a href="https://th.bing.com/th/id/OIP.TQCsMeZLb93aSps1w5nevAHaHa?w=192&h=192&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.TQCsMeZLb93aSps1w5nevAHaHa?w=192&h=192&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
-
-    <a href="https://th.bing.com/th/id/OIP.djA-TO9DOMnrYXzVa5pWwAHaFj?w=248&h=186&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.djA-TO9DOMnrYXzVa5pWwAHaFj?w=248&h=186&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
-
-    <a href="https://th.bing.com/th/id/OIP.y4rfgWe4Vaf12DXwA3gBcAHaEJ?w=332&h=186&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.y4rfgWe4Vaf12DXwA3gBcAHaEJ?w=332&h=186&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
-
-    <a href="https://th.bing.com/th/id/OIP.WSocVFTp0kNykvHTCBfGjwHaEk?w=304&h=188&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-      <img src="https://th.bing.com/th/id/OIP.WSocVFTp0kNykvHTCBfGjwHaEk?w=304&h=188&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
-    </a>
-
-
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
 
-<!-- Botão grande de orçamento via WhatsApp -->
+  <!-- Galeria original Bar -->
+  <div class="apresentacao-imagens">
+    <!-- todas as imagens originais do Bar -->
+  </div>
+</section>
+
+<!-- ==================== BOTÃO DE ORÇAMENTO ==================== -->
 <a href="https://wa.me/17997746829" target="_blank" style="text-decoration:none;">
-  <div style="position:fixed;right:20px;bottom:20px;
-              display:flex;align-items:center;justify-content:center;
-              background-color:#25D366;color:rgb(0, 0, 0);padding:20px 30px;
-              border-radius:50px;font-size:22px;font-weight:bold;
-              box-shadow:0 6px 12px rgba(0,0,0,0.3);z-index:1000;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-         alt="WhatsApp" style="width:36px;height:36px;margin-right:12px;">
+  <div class="orcamento-grande">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     Faça seu orçamento
   </div>
 </a>
 
+<!-- ==================== SCRIPT CARROSSEL ==================== -->
+<script>
+  // Função genérica para todos os carrosséis
+  document.querySelectorAll(".carousel").forEach(carousel => {
+    const images = carousel.querySelectorAll("img");
+    const prevBtn = carousel.querySelector(".prev");
+    const nextBtn = carousel.querySelector(".next");
+    let currentIndex = 0;
 
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle("active", i === index);
+      });
+    }
 
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    });
+
+    // Troca automática a cada 5 segundos
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }, 5000);
+  });
+</script>
