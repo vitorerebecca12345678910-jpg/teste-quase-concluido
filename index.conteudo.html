@@ -1,157 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Espaço de Casamento</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #000000, #000000);
-      color: #fdfdfd;
-    }
-    header {
-      background: #fff;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    header img {
-      height: 60px;
-      margin-right: 15px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      color: #ff4e50;
-    }
-    .hero {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .hero h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: auto;
-    }
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      padding: 20px;
-    }
-    .galeria img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    .galeria img:hover {
-      transform: scale(1.05);
-    }
-    .video {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .video iframe {
-      width: 80%;
-      height: 400px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
-    .orcamento {
-      position: fixed;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      background: #25D366;
-      color: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 1.5em;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    .orcamento a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .orcamento img {
-      width: 40px;
-      margin-right: 10px;
-    }
-    footer {
-      background: #fff;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-    }
-
-    .apresentacao-imagens {
-  display: flex;
-  flex-wrap: wrap; /* permite que as imagens quebrem para baixo */
-  gap: 15px;       /* espaço entre elas */
-  justify-content: center;
+<style>
+  .apresentacao-imagens {
+  display: flex;          /* coloca lado a lado */
+  flex-wrap: wrap;        /* permite quebrar para baixo */
+  gap: 20px;              /* espaço entre imagens */
+  justify-content: center;/* centraliza na tela */
 }
 
 .apresentacao-imagens img {
-  width: 400px;    /* tamanho fixo (pode ajustar) */
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-.apresentacao-imagens {
-  display: flex;
-  flex-wrap: wrap;   /* permite quebrar para baixo */
-  gap: 15px;         /* espaçamento entre imagens */
-  justify-content: center;
-}
-
-.apresentacao-imagens img {
-  width: 300px;      /* largura fixa */
-  height: 200px;     /* altura fixa */
-  object-fit: cover; /* corta proporcionalmente sem distorcer */
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-.orcamento {
-  position: fixed;
-  top: 70%;          /* move mais para baixo */
-  right: 20px;
-  transform: translateY(-50%);
-  background: #25D366;
-  color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 1.5em;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-
-.apresentacao-imagens {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: center;
-}
-
-.apresentacao-imagens img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
+  width: 300px;           /* largura fixa */
+  height: 200px;          /* altura fixa */
+  object-fit: cover;      /* corta proporcionalmente sem distorcer */
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
   transition: transform 0.3s;
@@ -160,134 +18,332 @@
 .apresentacao-imagens img:hover {
   transform: scale(1.05);
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #000000, #fffef9); /* degradê vibrante */
+  color: #fff;
+}
+
+/* Header estilo banner */
 header {
-  display: flex;
-  justify-content: center;
-}
-header {
-  display: flex;
-  flex-direction: column; /* coloca logo em cima e título embaixo */
-  align-items: center;
-}
-
-header img {
-  width: 250px;   /* tamanho maior */
-  height: auto;
-  margin-bottom: 15px;
-}
-
-header img {
-  width: 100%;      /* ocupa toda a largura da tela */
-  height: 200px;    /* altura fixa para parecer banner */
-  object-fit: cover;/* corta proporcionalmente sem distorcer */
-  display: block;
-}
-
-header img {
-  width: 100%;       /* ocupa toda a largura */
-  height: 200px;     /* altura fixa estilo banner */
-  object-fit: cover; /* corta proporcionalmente sem distorcer */
-  display: block;
-}
-
-header {
-  background: url('./logo.jpg') no-repeat center center;
-  background-size: cover;   /* estica a logo para cobrir toda a largura */
-  height: 250px;            /* altura do banner */
+  background: linear-gradient(135deg, #111111, #fffdfb);
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 header h1 {
-  color: #fff;              /* texto branco para contraste */
+  color: #fff;
   font-size: 3em;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* sombra para destacar */
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
 }
 
+/* Seções */
+section h2 {
+  color: #ffe066; /* dourado suave */
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+/* Galeria de imagens */
+.apresentacao-imagens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.apresentacao-imagens img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.apresentacao-imagens img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Botão de orçamento */
+.orcamento {
+  position: fixed;
+  top: 70%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: #25D366;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.5em;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.orcamento a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orcamento img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+/* Footer */
 footer {
-  background: url('./banner-footer.jpg') no-repeat center center;
-  background-size: cover;   /* cobre toda a largura */
+  background: linear-gradient(135deg, #000000, #ffffff);
   color: #fff;
   text-align: center;
-  padding: 400px;            /* aumenta altura do rodapé */
+  padding: 40px;
+  font-size: 1.2em;
 }
 
-
-  </style>
-</head>
-<body>
- 
-    <header>
-  <h1>Espaço dos Sonhos 💍</h1>
-</header>
+</style>
 
 
+<!-- Buffet -->
+<section class="buffet">
+  <h2>Buffet</h2>
+  <div class="apresentacao-imagens">
+    <a href="https://copilot.microsoft.com/th/id/BCO.c183a0f0-9968-4720-85dc-324bc8b6c2b2.png" target="_blank">
+<img src="https://copilot.microsoft.com/th/id/BCO.c183a0f0-9968-4720-85dc-324bc8b6c2b2.png" alt="buffet 1">
+    </a>
 
-  <!-- Apresentação -->
-  <section class="hero">
-    <h2>O lugar perfeito para o seu casamento</h2>
-    <p>Oferecemos um espaço exclusivo, elegante e acolhedor para tornar o seu grande dia inesquecível. Reserve já e viva momentos mágicos!</p>
-  </section>
+    <a href="https://copilot.microsoft.com/th/id/BCO.0ad7c495-ce94-4240-a0b2-c1c18a25a874.png" target="_blank">
+<img src="https://copilot.microsoft.com/th/id/BCO.0ad7c495-ce94-4240-a0b2-c1c18a25a874.png" alt="buffet 2">
+    </a>
 
-  <!-- Galeria de imagens -->
-  <section class="apresentacao-imagens">
-  <a href="https://home.lejour.com.br/wp-content/uploads/2021/09/chacara-viva-casamento-ao-ar-livre.jpg" target="_blank">
-    <img src="https://home.lejour.com.br/wp-content/uploads/2021/09/chacara-viva-casamento-ao-ar-livre.jpg" alt="Espaço de casamento">
-  </a>
-  
-  <a href="https://i.pinimg.com/originals/93/85/61/9385611e1b2df3f41af5c0f5be9458c6.jpg" target="_blank">
-    <img src="https://i.pinimg.com/originals/93/85/61/9385611e1b2df3f41af5c0f5be9458c6.jpg" alt="Salão decorado">
-  </a>
-  
-  <a href="https://aceitosim.com.br/wp-content/uploads/2016/11/fotos-de-casamento-768x512.jpg" target="_blank">
-    <img src="https://aceitosim.com.br/wp-content/uploads/2016/11/fotos-de-casamento-768x512.jpg" alt="Festa de casamento">
-  </a>
+    <a href="https://copilot.microsoft.com/th/id/BCO.7a5f94d8-6ae6-4b02-9ece-7ceeb23d3add.png" target="_blank">
+<img src="https://copilot.microsoft.com/th/id/BCO.7a5f94d8-6ae6-4b02-9ece-7ceeb23d3add.png" alt=" buffet 3">
+    </a>
 
-  <a href="https://ts3.mm.bing.net/th?id=OIP.QT_mYv1sa_ac0g_vGrYHzAHaE7&pid=15.1&w=518&h=345&c=7&rs=1"  target="_blank">
-<img src="https://ts3.mm.bing.net/th?id=OIP.QT_mYv1sa_ac0g_vGrYHzAHaE7&pid=15.1&w=518&h=345&c=7&rs=1" alt="buffet">
-  </a>
+    <a href="https://copilot.microsoft.com/th/id/BCO.3acd4310-5319-4c64-94aa-bf0a778bc40b.png" target="_blank">
+<img src="https://copilot.microsoft.com/th/id/BCO.3acd4310-5319-4c64-94aa-bf0a778bc40b.png" alt="bufet 4">
+    </a>
 
-  <a href="https://topdancefloor.com/wp-content/uploads/2023/03/Mix-RGB-effect-of-3D-LED-dance-floor-on-dj-event-1280x960.jpg" target="_blank">
-<img src="https://topdancefloor.com/wp-content/uploads/2023/03/Mix-RGB-effect-of-3D-LED-dance-floor-on-dj-event-1280x960.jpg" alt="pista de dança">
-  </a>
-
-  <a href="https://tuacasa.uol.com.br/wp-content/uploads/2019/04/mesa-de-frios-08-1300x1536.jpg" target="_blank">
-<img src="https://tuacasa.uol.com.br/wp-content/uploads/2019/04/mesa-de-frios-08-1300x1536.jpg" alt="mesa de frios">
-  </a>
-
-  <a href="https://barschool.net/wp-content/uploads/2018/11/111-bartender-preparing-cocktail.jpg" target="_blank"> 
-<img src="https://barschool.net/wp-content/uploads/2018/11/111-bartender-preparing-cocktail.jpg" alt="bar man">
-  </a>
-
-  <a href="https://www.aceitosim.com.br/wp-content/uploads/2017/04/entrada-da-noiva22.jpg" target="_blank">
-<img src="https://www.aceitosim.com.br/wp-content/uploads/2017/04/entrada-da-noiva22.jpg" alt="entarda da noiva">
-  </a>
-
-  <a href="https://th.bing.com/th/id/OIP.GJ5AoN_-uChX0SIxQF_8rAHaEj?w=318&h=196&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
-<img src="https://th.bing.com/th/id/OIP.GJ5AoN_-uChX0SIxQF_8rAHaEj?w=318&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="mesa de doces">
-  </a>
-
-  <a href="https://2.bp.blogspot.com/-GWcpRcQUNAw/UTtdcueSaEI/AAAAAAAACTY/PcGDrAy5jR4/s1600/banheiro.jpeg" target="_blank">
-<img src="https://2.bp.blogspot.com/-GWcpRcQUNAw/UTtdcueSaEI/AAAAAAAACTY/PcGDrAy5jR4/s1600/banheiro.jpeg" alt="banheiro">
-  </a>
-</section>
-
- 
-</section>
+    <a href="https://copilot.microsoft.com/th/id/BCO.b07686ae-f5ab-4528-b64b-8b9f0d9cfa85.png" target="_blank">
+<img src="https://copilot.microsoft.com/th/id/BCO.b07686ae-f5ab-4528-b64b-8b9f0d9cfa85.png" alt="buffet 5">
+    </a>
 
 
-  <!-- Botão de orçamento via WhatsApp -->
-  <div class="orcamento">
-    <a href="https://wa.me/17997746829?text=Olá%20gostaria%20de%20fazer%20um%20orçamento%20para%20o%20espaço%20de%20casamento" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-      Faça seu orçamento
+    <a href="https://copilot.microsoft.com/th/id/BCO.ec53db04-6429-4c98-b722-de2c8d8d363a.png" target="_blank">
+<img src="https://copilot.microsoft.com/th/id/BCO.ec53db04-6429-4c98-b722-de2c8d8d363a.png" alt="buffet 6">
+    </a>
+
+
+    <a href="https://th.bing.com/th/id/OIP.xGHfGTHW2DJKHJ6gNFAP3gHaE7?w=281&h=187&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+<img src="https://th.bing.com/th/id/OIP.xGHfGTHW2DJKHJ6gNFAP3gHaE7?w=281&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 7">
+    </a>
+
+    <a href="https://th.bing.com/th/id/OIP.0j1k0SNIs9VgxGemn45qRgHaE7?w=283&h=187&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.0j1k0SNIs9VgxGemn45qRgHaE7?w=283&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 8">
+    </a>
+
+
+    <a href="https://copilot.microsoft.com/th/id/BCO.cf6dc28c-1f5f-424f-9100-22a924f43f27.png" target="_blank">
+      <img src="https://copilot.microsoft.com/th/id/BCO.cf6dc28c-1f5f-424f-9100-22a924f43f27.png" alt="buffet 9">
+    </a>
+
+    <a href="https://th.bing.com/th/id/OIP.0j1k0SNIs9VgxGemn45qRgHaE7?w=283&h=187&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.0j1k0SNIs9VgxGemn45qRgHaE7?w=283&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 10">
+    </a>
+
+
+    <a href="https://th.bing.com/th/id/OIP.7dz26LBO07p7rodP2pGfUQHaFX?w=246&h=180&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.7dz26LBO07p7rodP2pGfUQHaFX?w=246&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 11">
+    </a>
+
+    <a href="https://th.bing.com/th/id/OIP.-It4R7Z1N9zR6ucnv3wd1gHaEg?w=305&h=185&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.-It4R7Z1N9zR6ucnv3wd1gHaEg?w=305&h=185&c=7&r=0&o=7&pid=1.7&rm=3" alt="buffet 12">
     </a>
   </div>
+</section>
 
-  <!-- Rodapé -->
-  <footer>
-    <p>&copy; 2026  espaço para casamento</p>
-  </footer>
-</body>
-</html>
+<!-- Salão de Festa -->
+<section class="salao">
+  <h2>Salão de Festa</h2>
+  <div class="apresentacao-imagens">
+    <a href="https://ts2.mm.bing.net/th?id=OIP._JE4O9bDHrl6H4VFTub_NgHaE8&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts2.mm.bing.net/th?id=OIP._JE4O9bDHrl6H4VFTub_NgHaE8&pid=15.1&o=7&rm=3" alt="Salão decorado">
+    </a>
+    <a href="https://ts4.mm.bing.net/th?id=OIP.U1NafKK_lXomFwyY-DYwSQHaE8&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts4.mm.bing.net/th?id=OIP.U1NafKK_lXomFwyY-DYwSQHaE8&pid=15.1&o=7&rm=3" alt="salão decorado">
+    </a>
+
+    <a href="https://ts2.mm.bing.net/th?id=OIP.lOvmJimw49JEXh6OkeJqEgHaFj&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts2.mm.bing.net/th?id=OIP.lOvmJimw49JEXh6OkeJqEgHaFj&pid=15.1&o=7&rm=3" alt="salão decorado">
+    </a>
+
+    <a href="https://ts2.mm.bing.net/th?id=OIP.F2kNWw5SILI4YrHsDNMXiwHaE8&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts2.mm.bing.net/th?id=OIP.F2kNWw5SILI4YrHsDNMXiwHaE8&pid=15.1&o=7&rm=3" alt="salão decorado">
+    </a>
+
+    <a href="https://ts3.mm.bing.net/th?id=OIP.Viw-Pe5Ajq4nsnVlhKIvtwHaHa&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts3.mm.bing.net/th?id=OIP.Viw-Pe5Ajq4nsnVlhKIvtwHaHa&pid=15.1&o=7&rm=3" alt="salão decorado">
+    </a>
+
+    <a href="https://ts3.mm.bing.net/th?id=OIP.Jwckrm0uBxxM8VV4ET0O3wHaE7&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts3.mm.bing.net/th?id=OIP.Jwckrm0uBxxM8VV4ET0O3wHaE7&pid=15.1&o=7&rm=3" alt="slão decorado">
+    </a>
+
+    <a href="https://ts4.mm.bing.net/th?id=OIP.HCuk4_C9DJcXK58_ttTf3QHaEK&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts4.mm.bing.net/th?id=OIP.HCuk4_C9DJcXK58_ttTf3QHaEK&pid=15.1&o=7&rm=3" alt="slão decorado">
+    </a>
+
+    <a href="https://ts3.mm.bing.net/th?id=OIP.Nsa-5oox1D6r4z9mU52Q6gHaF7&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts3.mm.bing.net/th?id=OIP.Nsa-5oox1D6r4z9mU52Q6gHaF7&pid=15.1&o=7&rm=3" alt="slão decorado">
+    </a>
+
+    <a href="https://ts2.mm.bing.net/th?id=OIP._f8fl-wTrUcuztegRsGelAHaE7&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts2.mm.bing.net/th?id=OIP._f8fl-wTrUcuztegRsGelAHaE7&pid=15.1&o=7&rm=3" alt="slão decorado">
+    </a>
+
+    <a href="https://cdn0.casamentos.com.br/emp/fotos/2/1/3/0/formaturaricardo-25_13_112130-157852558227020.jpg" target="_blank">
+      <img src="https://cdn0.casamentos.com.br/emp/fotos/2/1/3/0/formaturaricardo-25_13_112130-157852558227020.jpg" alt="slão decorado">
+    </a>
+
+    <a href="https://cdn0.casamentos.com.br/vendor/6842/3_2/960/jpg/img-5331_13_106842-166964774173918.jpeg" target="_blank">
+      <img src="https://cdn0.casamentos.com.br/vendor/6842/3_2/960/jpg/img-5331_13_106842-166964774173918.jpeg" alt="salão decorado">
+    </a>
+
+    <a href="https://ts4.mm.bing.net/th?id=OIP.c54nxV6xiNZBfWgeu-0zRQHaEa&pid=15.1&o=7&rm=3" target="_blank">
+      <img src="https://ts4.mm.bing.net/th?id=OIP.c54nxV6xiNZBfWgeu-0zRQHaEa&pid=15.1&o=7&rm=3" alt="salão decorado">
+    </a>
+  </div>
+</section>
+
+<!-- Pista de Dança -->
+<section class="pista">
+  <h2>Pista de Dança</h2>
+  <div class="apresentacao-imagens">
+    <a href="https://copilot.microsoft.com/th/id/BCO.a1926798-6688-4539-856e-7804aa5ca5ce.png" target="_blank">
+      <img src="https://copilot.microsoft.com/th/id/BCO.a1926798-6688-4539-856e-7804aa5ca5ce.png" alt="Pista de dança">
+    </a>
+
+    <a href="https://copilot.microsoft.com/th/id/BCO.eadf5dc2-72c9-40c0-ac4f-5cf75270e86c.png" target="_blank">
+      <img src="https://copilot.microsoft.com/th/id/BCO.eadf5dc2-72c9-40c0-ac4f-5cf75270e86c.png" alt="pista de dança">
+    </a>
+
+    <a href="https://i.pinimg.com/originals/7a/bc/0d/7abc0dd265fe76b9b76e217d3642235e.jpg" target="_blank">
+      <img src="https://i.pinimg.com/originals/7a/bc/0d/7abc0dd265fe76b9b76e217d3642235e.jpg" alt="pista de dança">
+    </a>
+
+    <a href="https://elo5eventos.com.br/wp-content/uploads/2021/07/pista-de-led-paris.jpg" target="_blank">
+      <img src="https://elo5eventos.com.br/wp-content/uploads/2021/07/pista-de-led-paris.jpg" alt="pista de dança">
+    </a>
+
+    <a href="https://cdn0.casamentos.com.br/vendor/0456/3_2/1280/jpg/img-4443_13_130456.jpeg" target="_blank">
+      <img src="https://cdn0.casamentos.com.br/vendor/0456/3_2/1280/jpg/img-4443_13_130456.jpeg" alt="pista de dança">
+    </a>
+
+
+    <a href="https://i.pinimg.com/736x/b8/7a/45/b87a4548c0e8f7608af76e0c54c9d02d.jpg" target="_blank">
+      <img src="https://i.pinimg.com/736x/b8/7a/45/b87a4548c0e8f7608af76e0c54c9d02d.jpg" alt="pista de dança">
+    </a>
+
+     <a href="https://tse2.mm.bing.net/th/id/OIP.5tqEQHBInKIJ2JHovEdkbgHaHa?r=0&w=1000&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3" target="_blank">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.5tqEQHBInKIJ2JHovEdkbgHaHa?r=0&w=1000&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3" alt="pista de dança">
+    </a>
+
+     <a href="https://tse2.mm.bing.net/th/id/OIP.NG6HqwX11k9SnWDqNZMncwHaGf?r=0&w=570&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" target="_blank">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.NG6HqwX11k9SnWDqNZMncwHaGf?r=0&w=570&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" alt="pista de dança">
+    </a>
+
+     <a href="https://roslynevents.co.uk/wp-content/uploads/2022/01/led-dance-floor-white.jpg" target="_blank">
+      <img src="https://roslynevents.co.uk/wp-content/uploads/2022/01/led-dance-floor-white.jpg" alt="pista de dança">
+    </a>
+
+     <a href="https://i.pinimg.com/originals/7c/b8/8b/7cb88bb3edfb9e42963b5ac0ef9eb2d2.jpg" target="_blank">
+      <img src="https://i.pinimg.com/originals/7c/b8/8b/7cb88bb3edfb9e42963b5ac0ef9eb2d2.jpg" alt="pista de dança">
+    </a>
+
+     <a href="https://i.etsystatic.com/19972274/r/il/60dbaf/4938982965/il_300x300.4938982965_f7s9.jpg" target="_blank">
+      <img src="https://i.etsystatic.com/19972274/r/il/60dbaf/4938982965/il_300x300.4938982965_f7s9.jpg" alt="pista de dança">
+    </a>
+
+     <a href="https://i.etsystatic.com/19972274/r/il/471796/5170449201/il_300x300.5170449201_ho3j.jpg" target="_blank">
+      <img src="https://i.etsystatic.com/19972274/r/il/471796/5170449201/il_300x300.5170449201_ho3j.jpg" alt="pista de dança">
+    </a>
+  </div>
+</section>
+
+<!-- Bar -->
+<section class="bar">
+  <h2>Bar</h2>
+  <div class="apresentacao-imagens">
+    <a href="https://copilot.microsoft.com/th/id/BCO.d481f042-4eba-495b-978e-ef88406778e2.png" target="_blank">
+      <img src="https://copilot.microsoft.com/th/id/BCO.d481f042-4eba-495b-978e-ef88406778e2.png" alt="bar">
+    </a>
+
+     <a href="https://copilot.microsoft.com/th/id/BCO.67e3a48f-4bf1-499f-bb64-9a1803cbd889.png" target="_blank">
+      <img src="https://copilot.microsoft.com/th/id/BCO.67e3a48f-4bf1-499f-bb64-9a1803cbd889.png" alt="bar">
+    </a>
+
+     <a href="https://th.bing.com/th/id/OIP.4wipiC0F8Nm8fQlQAUlUOgHaFj?w=262&h=196&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.4wipiC0F8Nm8fQlQAUlUOgHaFj?w=262&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+
+    <a href="https://th.bing.com/th/id/OIP.QpEh4syTbv6qQBAjxY1MpwHaEs?w=308&h=196&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.QpEh4syTbv6qQBAjxY1MpwHaEs?w=308&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+
+    <a href="https://th.bing.com/th/id/OIP.aimbsasT67PSJnL1rHmDEAHaHa?w=261&h=196&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.aimbsasT67PSJnL1rHmDEAHaHa?w=261&h=196&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+
+    <a href="https://th.bing.com/th/id/OIP.ZCXJ0BJEYrM5YN7NotnhRAHaGY?w=237&h=204&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.ZCXJ0BJEYrM5YN7NotnhRAHaGY?w=237&h=204&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+
+    <a href="https://th.bing.com/th/id/OIP.Qo9f77H25YwXXasNmniFhwHaHa?w=187&h=187&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.Qo9f77H25YwXXasNmniFhwHaHa?w=187&h=187&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+
+    <a href="https://th.bing.com/th/id/OIP.l0qwqtZpMX9oTUfr-1WncgHaFj?w=256&h=192&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.l0qwqtZpMX9oTUfr-1WncgHaFj?w=256&h=192&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+    <a href="https://th.bing.com/th/id/OIP.TQCsMeZLb93aSps1w5nevAHaHa?w=192&h=192&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.TQCsMeZLb93aSps1w5nevAHaHa?w=192&h=192&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+    <a href="https://th.bing.com/th/id/OIP.djA-TO9DOMnrYXzVa5pWwAHaFj?w=248&h=186&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.djA-TO9DOMnrYXzVa5pWwAHaFj?w=248&h=186&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+    <a href="https://th.bing.com/th/id/OIP.y4rfgWe4Vaf12DXwA3gBcAHaEJ?w=332&h=186&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.y4rfgWe4Vaf12DXwA3gBcAHaEJ?w=332&h=186&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+    <a href="https://th.bing.com/th/id/OIP.WSocVFTp0kNykvHTCBfGjwHaEk?w=304&h=188&c=7&r=0&o=7&pid=1.7&rm=3" target="_blank">
+      <img src="https://th.bing.com/th/id/OIP.WSocVFTp0kNykvHTCBfGjwHaEk?w=304&h=188&c=7&r=0&o=7&pid=1.7&rm=3" alt="bar">
+    </a>
+
+
+  </div>
+
+<!-- Botão grande de orçamento via WhatsApp -->
+<a href="https://wa.me/17997746829" target="_blank" style="text-decoration:none;">
+  <div style="position:fixed;right:20px;bottom:20px;
+              display:flex;align-items:center;justify-content:center;
+              background-color:#25D366;color:rgb(0, 0, 0);padding:20px 30px;
+              border-radius:50px;font-size:22px;font-weight:bold;
+              box-shadow:0 6px 12px rgba(0,0,0,0.3);z-index:1000;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+         alt="WhatsApp" style="width:36px;height:36px;margin-right:12px;">
+    Faça seu orçamento
+  </div>
+</a>
+
+
+
