@@ -2,169 +2,48 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Verificação de Idade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navegação com Texto</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .form-container {
-      background: #fff;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      width: 300px;
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* fundo preto */
       text-align: center;
     }
-    .form-container h2 {
-      margin-bottom: 20px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group input {
+    img {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      outline: none;
-      text-align: center;
+      height: auto; /* mantém proporção da imagem */
+      display: block;
     }
-    button {
-      width: 100%;
-      padding: 10px;
-      background: #007bff;
+    .titulo {
+      margin-top: 20px;
+      font-size: 28px;
+      font-weight: bold;
       color: #fff;
-      border: none;
+    }
+    .titulo a {
+      color: #fff;
+      text-decoration: none;
+      border: 2px solid #fff;
+      padding: 10px 20px;
       border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
+      transition: 0.3s;
     }
-    button:hover {
-      background: #0056b3;
+    .titulo a:hover {
+      background: #fff;
+      color: #000;
     }
-
-    .form-container {
-  background: #fff;
-  padding: 25px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 100%;
-  height: 100%;
-  border-radius: 0; /* remove arredondamento */
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-body {
-  font-family: Arial, sans-serif;
-  background: #000; /* fundo preto */
-  color: #fff;      /* texto branco */
-  height: 100vh;
-  margin: 0;
-}
-
-.form-container {
-  background: #000; /* fundo preto também dentro do container */
-  padding: 25px;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.form-container h2 {
-  color: #fff; /* título branco */
-}
-
-.form-group input {
-  width: 30%;
-  padding: 10px;
-  border: 10px solid #fff1f1; /* borda branca */
-  border-radius: 10px;
-  outline: none;
-  text-align: center;
-  background: #fff6f6; /* fundo preto no input */
-  color: #000000;      /* texto branco no input */
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background: #ffffff; /* botão branco */
-  color: #000000;      /* texto preto no botão */
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background: #ffee00; /* amarelo ao passar o mouse */
-}
-
-
-.form-group input {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  outline: none;
-  text-align: center;
-  background: #ffffff;
-  color: #000000;
-  font-size: 22px; /* aumenta o tamanho da letra */
-}
-
-button {
-  width: 100%;
-  padding: 15px;
-  background: #fffafa;
-  color: #000000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 22px; /* aumenta o tamanho da letra */
-}
-
-button:hover {
-  background: #ffee00;
-}
-
-
   </style>
 </head>
 <body>
-  <div class="form-container">
-    <h2>Confirmação de Idade</h2>
-    <div class="form-group">
-      <input type="number" id="idade" placeholder="Digite sua idade">
-    </div>
-    <button onclick="verificarIdade()">Confirmar</button>
+  <!-- Imagem grande não clicável -->
+  <img src="./desenvolvedor.jpg" alt="Imagem de destaque">
+
+  <!-- Apenas o texto "Sobre Nós" é clicável -->
+  <div class="titulo">
+    <a href="./sobre.html">Sobre Nós</a>
+    <a href="./contato.html">contato</a>
   </div>
-
-  <script>
-    function verificarIdade() {
-      const idade = parseInt(document.getElementById("idade").value);
-
-      if (!idade) {
-        alert("Digite sua idade!");
-        return;
-      }
-
-      if (idade < 18) {
-        alert("Acesso negado: você precisa ter 18 anos ou mais.");
-      } else {
-        alert("Acesso liberado!");
-        window.location.href = "./menu.html";
-      }
-    }
-  </script>
 </body>
 </html>
